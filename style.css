@@ -1,0 +1,257 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    transition: all .3s ease;
+    color: white;
+}
+*:focus{
+    outline: none;
+}
+.app{
+    padding: 10px;
+    background-color: #252525;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.player-1-info.active,.player-2-info.active{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 150px;
+    height: 200px;
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.player-1-info.active:hover,.player-2-info.active:hover{
+    box-shadow: 0 0 10px white;
+}
+
+.card-name{
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 2px black;
+    color: #252525;
+    font-family: cursive;
+}
+
+.card-sign,.card-score{
+
+    width: 100px;
+    font-family: cursive;
+    color: #252525;
+}
+
+.board-dialog{
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+dialog{
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    font-size: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease;
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+dialog[open] {
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    font-size: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@starting-style {
+    dialog[open] {
+        width: 300px;
+        height: 100px;
+        border-radius: 10px;
+        font-size: 30px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+dialog::backdrop{
+    backdrop-filter: blur(0px);
+    transition: all .3s ease;
+}
+
+dialog[open]::backdrop {
+    backdrop-filter: blur(5px);
+}
+
+@starting-style {
+    dialog[open]::backdrop {
+        backdrop-filter: blur(0px);
+    }
+}
+
+
+
+
+
+.elementsfordialog{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.msg{
+    margin-top: 20px;
+    font-size: 20px;
+    color: #252525;
+}
+
+.okbtn{
+    margin-top: 20px;
+    color: #252525;
+    width: 150px;
+    height: 30px;
+    font-size: 20px;
+    border: 3px solid #252525;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.board{
+    margin: 0 20px;
+    display: grid;
+    grid-template: 150px 150px 150px / 150px 150px 150px;
+    gap: 1px;
+    background-color: #252525;
+    width: 450px;
+}
+
+.board-ele{
+    background: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-family: cursive;
+    color: #252525;
+    cursor: pointer;
+}
+.board-ele:hover{
+    background: #d9d9d9;
+}
+
+.round{
+    margin: 20px;
+    font-size: 25px;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 500px;
+}
+
+.players{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.player1,.player2{
+    padding: 10px;
+    position: relative;
+    width: 300px;
+    height: 100px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+label{
+    left: 10px;
+    font-size: 20px;
+}
+
+input{
+    max-width: 200px;
+    height: 40px;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid;
+    margin-left: 10px;
+}
+
+select{
+    width: 40px;
+    height: 20px;
+    font-size: 15px;
+    border: none;
+    border-bottom: 3px solid;
+    background-color: transparent;
+    font-weight: bold;
+    padding-left: 3px;
+    cursor: pointer;
+}
+
+option{
+    background-color: #252525;
+    border: none;
+}
+
+.sign>label{
+    margin-right: 20px;
+}
+
+#startbtn{
+    width: 250px;
+    height: 40px;
+    font-size: 20px;
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 20px;
+    border: none;
+    color: black;
+    cursor: pointer;
+}
+#startbtn:hover{
+    box-shadow: 0 0 10px  white;
+}

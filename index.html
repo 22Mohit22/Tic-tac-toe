@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-tac-toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <div class="board-dialog">
+            <div class="player-1-info">
+                
+            </div>
+            <div class="board">
+                
+            </div>
+            <dialog>
+                <div class="elementsfordialog">
+                    <p class="msg">Hello from winner</p>
+                    <button class="okbtn">Next Round</button>
+                </div>
+            </dialog>
+            <div class="player-2-info">
+
+            </div>
+            
+        </div>
+        <h3 class="round"></h3>
+        <div class="form-container">
+            <div class="players">
+                <div class="player1">
+                    <div class="name">
+                        <label for="player-1">Name:</label>
+                        <input type="text" name="player-1" id="player-1" placeholder="player 1" value="player 1" required/>
+                    </div>
+                    <div class="sign">
+                        <label for="sign-player-1">Sign:</label>
+                        <select name="sign" id="sign-player-1">
+                            <option value="x">x</option>
+                            <option value="o">o</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="player2">
+                    <div class="name">
+                        <label for="player-2">Name:</label>
+                        <input type="text" name="player-2" id="player-2" placeholder="player 2" value="player 2" required/>
+                    </div>
+                    <div class="sign">
+                        <label for="sign-player-2">Sign:</label>
+                        <select name="sign" id="sign-player-2">
+                            <option value="o">o</option>
+                            <option value="x">x</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn" id="startbtn">Start Game</button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
