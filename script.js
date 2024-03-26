@@ -1,8 +1,28 @@
+const boardContainer = document.querySelector('.board');
+const board_Dialog = document.querySelector('.board-dialog');
+const player1info = document.querySelector('.player-1-info');
+const player2info = document.querySelector('.player-2-info');
+const startBtn = document.getElementById('startbtn');
+const dialog = document.querySelector('dialog');
+const dialogText = document.querySelector('.msg');
+const round = document.querySelector('.round');
+const closeBtn = document.querySelector('.okbtn');
+
+const gameBoard = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
+
+
+let player1 = {};
+let player2 = {};
+let currentPlayer = player1;
+
+
+count = 1;
+
+
 function createPlayer(name, sign) {
     return {name, sign};
 }
 
-const gameBoard = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
 
 function fillBoard(sign, idx) {
 
@@ -54,10 +74,6 @@ function resetBoard(gameBoard) {
     return gameBoard;
 }
 
-
-const boardContainer = document.querySelector('.board');
-const board_Dialog = document.querySelector('.board-dialog');
-
 function createDisplayBoard() {
     boardContainer.innerHTML = '';
 
@@ -69,15 +85,6 @@ function createDisplayBoard() {
         boardContainer.appendChild(board_box);
     }
 }
-
-
-let player1 = {};
-let player2 = {};
-let currentPlayer = player1;
-
-const player1info = document.querySelector('.player-1-info');
-const player2info = document.querySelector('.player-2-info');
-
 
 function playerToDisplay(player, targetElement) {
     const playerName = document.createElement('h3');
@@ -94,10 +101,6 @@ function playerToDisplay(player, targetElement) {
     targetElement.appendChild(playerSign);
     targetElement.appendChild(playerScore);
 }
-
-
-
-const startBtn = document.getElementById('startbtn');
 
 function getPlayers() {
     const player1_name = document.getElementById('player-1');
@@ -132,11 +135,6 @@ function changeTurn(player) {
     return player;
 }
 
-const dialog = document.querySelector('dialog');
-const dialogText = document.querySelector('.msg');
-const round = document.querySelector('.round');
-
-
 startBtn.addEventListener('click', (e) => {
     player1info.classList.add('active');
     player2info.classList.add('active');
@@ -157,8 +155,8 @@ startBtn.addEventListener('click', (e) => {
 
 boardContainer.addEventListener('click', (e) => {
    handle_X_or_O(e);
+   checkDraw();
 })
-
 
 function handle_X_or_O(e) {
     const board_ele = e.target.closest('.board-ele');
@@ -184,12 +182,6 @@ function handle_X_or_O(e) {
     }
 }
 
-
-const closeBtn = document.querySelector('.okbtn');
-
-count = 1;
- 
-
 closeBtn.addEventListener('click', () => {
     createDisplayBoard();
     resetBoard(gameBoard);
@@ -197,3 +189,18 @@ closeBtn.addEventListener('click', () => {
     count++;
     round.textContent = `Round ${count}`;
 })
+
+function checkDraw() {
+    if((gameBoard[0] != ' ' 
+    && gameBoard[1] != ' ' 
+    && gameBoard[2] != ' '
+    && gameBoard[3] != ' '
+    && gameBoard[4] != ' '
+    && gameBoard[5] != ' '
+    && gameBoard[6] != ' '
+    && gameBoard[7] != ' '
+    && gameBoard[8] != ' ') && checkWinner() == null) {
+        dialog.showModal();
+        dialogText.textContent = "Draw";
+    }
+}
